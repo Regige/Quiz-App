@@ -25,18 +25,18 @@ let questions = [
     },
     {
         "question": "Wo wird eine Style Datei hinein referenziert? ",
-        "answer_1": "In den <head> Bereich",
-        "answer_2": "In den <body> Bereich",
+        "answer_1": "In den head Bereich",
+        "answer_2": "In den body Bereich",
         "answer_3": "Am Ende des Dokuments",
         "answer_4": "Am Anfang des Dokuments",
         "right_answer": 1
     },
     {
         "question": "Welches ist kein HTML Tag?",
-        "answer_1": "<video>",
-        "answer_2": "<output>",
-        "answer_3": "<al>",
-        "answer_4": "<ol>",
+        "answer_1": "video",
+        "answer_2": "output",
+        "answer_3": "al",
+        "answer_4": "ol",
         "right_answer": 3
     },
 
@@ -54,16 +54,55 @@ function init() {
 
 
 function showQuestion() {
+    if(currentQuestion >= questions.length) {
+        // do something
+    } else {
     let question = questions[currentQuestion];
     let questionText = document.getElementById('question-text');
     questionText.innerHTML = question["question"];
 
+    document.getElementById('question-number').innerHTML = currentQuestion + 1;
     let answer_1 = document.getElementById('answer1');
     answer_1.innerHTML = question["answer_1"];
-        let answer_2 = document.getElementById('answer2');
+    let answer_2 = document.getElementById('answer2');
     answer_2.innerHTML = question["answer_2"];
-        let answer_3 = document.getElementById('answer3');
+    let answer_3 = document.getElementById('answer3');
     answer_3.innerHTML = question["answer_3"];
-        let answer_4 = document.getElementById('answer4');
+    let answer_4 = document.getElementById('answer4');
     answer_4.innerHTML = question["answer_4"];
+    }
+}
+
+
+function answer(selection) {
+    let question = questions[currentQuestion];
+    let selectedQuestionNumber = selection.slice(-1);
+    let rightAnswer = document.getElementById(`con-answer${selectedQuestionNumber}`);
+
+    let idOfRightAnswer = `answer${question["right_answer"]}`
+
+    if(selectedQuestionNumber == question["right_answer"]) {
+        document.getElementById(selection).parentNode.classList.add('bg-success');
+    } else {
+        document.getElementById(selection).parentNode.classList.add('bg-danger');
+        document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
+    }
+    document.getElementById('next-button').disabled = false;
+}
+
+function nextQuestion() {
+    currentQuestion++;
+    showQuestion();
+
+    document.getElementById('next-button').disabled = false;
+
+    resetButton()
+}
+
+
+function resetButton() {
+    for (let i = 1; i < 5; i++) {
+        document.getElementById(`answer${i}`).parentNode.classList.remove('bg-danger');
+        document.getElementById(`answer${i}`).parentNode.classList.remove('bg-success');
+    }
 }

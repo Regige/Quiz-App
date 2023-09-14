@@ -54,8 +54,7 @@ function init() {
     let amountQuestion = document.getElementById('amount-quest');
     amountQuestion.innerHTML = questions.length;
 
-    showQuestion()
-    // showPol();
+    showQuestion();
 }
 
 
@@ -124,7 +123,6 @@ function answer(selection) {
 
 function nextQuestion() {
     currentQuestion++;
-    // colorPol();
 
     showQuestion();
 
@@ -147,6 +145,7 @@ function showResult() {
     cardResult.style = "";    
     let cardBody = document.getElementById('card-body');
     cardBody.style = 'display: none';
+    document.getElementById('result-img').classList.remove('d-none');  
 
     showScore();
 }
@@ -158,33 +157,13 @@ function showScore() {
 
 }
 
-
-// function showPol() {
-//     let questionPol = document.getElementById('question-pol');
-    
-//     if(questionPol.innerHTML.length != questions.length+1){
-//     for (let i = 0; i < questions.length+1; i++) {
-//         questionPol.innerHTML += `<span id="pol-color-done-${i}" class="pol-color"></span>`;
-//     }}
-//     colorPol();
-// }
-
-// function colorPol() {
-//     let polColorDone = document.getElementById(`pol-color-done-${currentQuestion}`);
-//     polColorDone.style.backgroundColor = "rgba(0,0,0,0.25)";
-// }
-
 function restartGame() {
     document.getElementById('card-body-result').style = 'display: none';    
     document.getElementById('card-body').style = "";
+    document.getElementById('result-img').classList.add('d-none');
 
     scoreCount = 0;
     currentQuestion = 0;
-
-    // for (let i = 0; i < questions.length+1; i++) {
-    //     let polColorDone = document.getElementById(`pol-color-done-${i}`);
-    //     polColorDone.style.backgroundColor = "";
-    // }
 
     init();
 }

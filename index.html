@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz App</title>
+    <link rel="icon" type="image/png" href="./img/brain_result.png" />
     <link rel="stylesheet" href="fonts.css" />
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css" />
@@ -29,80 +30,91 @@
     </nav>
     <div class="container">
       <div class="card quiz-card">
-        <img src="./img/quiz_img.jpg" class="card-img-top" alt="..." />
-        <div
-          id="card-body-result"
-          class="card-body card-body-result"
-          style="display: none"
-        >
-          <img src="./img/brain result.png" />
-          <div>
-            <b>COMPLETE<br />HTML QUIZ</b>
-          </div>
-          <div class="score-text">
-            <span><b>YOUR SCORE &emsp;</b></span
-            ><span><b id="score-number">5/5</b></span>
-          </div>
-          <button class="btn btn-primary">SHARE</button>
-          <button class="btn btn-light" onclick="restartGame()">REPLAY</button>
+        <div class="nav-quiz">
+          <img src="./img/logo.png" alt="" />
+          <span>CSS</span>
+          <span>HTML</span>
+          <span>JS</span>
         </div>
-        <div id="card-body" class="card-body">
-          <h5 id="question-text" class="card-title">Frage</h5>
+        <div class="card-content">
           <div
-            id="con-answer1"
-            onclick="answer('answer1')"
-            class="card quiz-answer-card mb-2"
+            id="card-body-result"
+            class="card-body card-body-result"
+            style="display: none"
           >
-            <div id="answer1" class="card-body">Antwort</div>
-          </div>
-          <div
-            id="con-answer2"
-            onclick="answer('answer2')"
-            class="card quiz-answer-card mb-2"
-          >
-            <div id="answer2" class="card-body">Antwort</div>
-          </div>
-          <div
-            id="con-answer3"
-            onclick="answer('answer3')"
-            class="card quiz-answer-card mb-2"
-          >
-            <div id="answer3" class="card-body">Antwort</div>
-          </div>
-          <div
-            id="con-answer4"
-            onclick="answer('answer4')"
-            class="card quiz-answer-card mb-2"
-          >
-            <div id="answer4" class="card-body">Antwort</div>
-          </div>
-          <div class="question-footer">
-            <span>
-              <b id="question-number">1</b> von
-              <b id="amount-quest"></b> Fragen</span
-            ><button
-              id="next-button"
-              class="btn btn-primary"
-              disabled
-              onclick="nextQuestion()"
-            >
-              Nächste Frage
+            <img src="./img/brain_result.png" />
+            <div>
+              <b>COMPLETE<br />HTML QUIZ</b>
+            </div>
+            <div class="score-text">
+              <span><b>YOUR SCORE &emsp;</b></span
+              ><span><b id="score-number">5/5</b></span>
+            </div>
+            <button class="btn btn-primary">SHARE</button>
+            <button class="btn btn-light" onclick="restartGame()">
+              REPLAY
             </button>
           </div>
-        </div>
-        <div
-          class="progress"
-          role="progressbar"
-          aria-label="Example with label"
-          aria-valuenow="25"
-          aria-valuemin="0"
-          aria-valuemax="100"
-        >
-          <div id="progress-bar" class="progress-bar" style="width: 0%">
-            25%
+          <div id="card-body" class="card-body">
+            <h5 id="question-text" class="card-title">Frage</h5>
+            <div
+              id="con-answer1"
+              onclick="answer('answer1')"
+              class="card quiz-answer-card mb-2"
+            >
+              <div id="answer1" class="card-body">Antwort</div>
+            </div>
+            <div
+              id="con-answer2"
+              onclick="answer('answer2')"
+              class="card quiz-answer-card mb-2"
+            >
+              <div id="answer2" class="card-body">Antwort</div>
+            </div>
+            <div
+              id="con-answer3"
+              onclick="answer('answer3')"
+              class="card quiz-answer-card mb-2"
+            >
+              <div id="answer3" class="card-body">Antwort</div>
+            </div>
+            <div
+              id="con-answer4"
+              onclick="answer('answer4')"
+              class="card quiz-answer-card mb-2"
+            >
+              <div id="answer4" class="card-body">Antwort</div>
+            </div>
+            <div class="question-footer">
+              <span>
+                <b id="question-number">1</b> von
+                <b id="amount-quest"></b> Fragen</span
+              ><button
+                id="next-button"
+                class="btn btn-primary"
+                disabled
+                onclick="nextQuestion()"
+              >
+                Nächste Frage
+              </button>
+            </div>
+          </div>
+          <div
+            class="progress"
+            role="progressbar"
+            aria-label="Example with label"
+            aria-valuenow="25"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            <div id="progress-bar" class="progress-bar" style="width: 0%">
+              25%
+            </div>
           </div>
         </div>
-        <!-- <div id="question-pol" class="question-pol"></div> -->
+      </div>
+      <div id="result-img" class="result-img d-none">
+        <img src="./img/tropy.png" alt="" />
       </div>
     </div>
   </body>
